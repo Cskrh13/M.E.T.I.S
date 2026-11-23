@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-23T05:38:47+01:00",
+  "nombre_competences": 210,
+  "resume": {
+    "ids_dupliques": 0,
+    "prerequis_inexistants": 24,
+    "auto_dependances": 0,
+    "objectifs_non_uniques": 0,
+    "prerequis_posterieurs": 0,
+    "doublons_formulation": 0,
+    "suivantes_asymetriques": 0,
+    "cycles": 0
+  },
+  "details": {
+    "ids_dupliques": [],
+    "prerequis_inexistants": [
+      {
+        "competence": "emc_connaissance_maitrise_soi",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_01"
+      },
+      {
+        "competence": "emc_connaissance_maitrise_soi__obj_02",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_01"
+      },
+      {
+        "competence": "emc_connaissance_maitrise_soi__obj_03",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_01"
+      },
+      {
+        "competence": "emc_connaissance_maitrise_soi__obj_04",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_01"
+      },
+      {
+        "competence": "emc_empathie_relations",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_01"
+      },
+      {
+        "competence": "emc_empathie_relations",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_02"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_02",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_01"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_02",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_02"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_03",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_01"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_03",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_02"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_04",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_01"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_04",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_02"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_05",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_01"
+      },
+      {
+        "competence": "emc_empathie_relations__obj_05",
+        "prerequis": "c1_evar_rencontrer_les_autres_et_construire_des_relations_gs_02"
+      },
+      {
+        "competence": "emc_regles_collectives_autonomie",
+        "prerequis": "c1_evar_trouver_sa_place_dans_la_societe_gs_02"
+      },
+      {
+        "competence": "emc_regles_collectives_autonomie__obj_02",
+        "prerequis": "c1_evar_trouver_sa_place_dans_la_societe_gs_02"
+      },
+      {
+        "competence": "emc_regles_collectives_autonomie__obj_03",
+        "prerequis": "c1_evar_trouver_sa_place_dans_la_societe_gs_02"
+      },
+      {
+        "competence": "emc_regles_collectives_autonomie__obj_04",
+        "prerequis": "c1_evar_trouver_sa_place_dans_la_societe_gs_02"
+      },
+      {
+        "competence": "emc_regles_collectives_autonomie__obj_05",
+        "prerequis": "c1_evar_trouver_sa_place_dans_la_societe_gs_02"
+      },
+      {
+        "competence": "emc_hygiene_intimite_integrite",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_02"
+      },
+      {
+        "competence": "emc_hygiene_intimite_integrite__obj_02",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_02"
+      },
+      {
+        "competence": "emc_hygiene_intimite_integrite__obj_03",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_02"
+      },
+      {
+        "competence": "emc_hygiene_intimite_integrite__obj_04",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_gs_02"
+      },
+      {
+        "competence": "cps_cognitives_conscience_soi_connaissance_soi",
+        "prerequis": "c1_evar_se_connaitre_vivre_et_grandir_avec_son_corps_tps_ps_01"
+      }
+    ],
+    "auto_dependances": [],
+    "objectifs_non_uniques": [],
+    "prerequis_posterieurs": [],
+    "doublons_formulation": [],
+    "suivantes_asymetriques": [],
+    "cycles": []
+  },
+  "avertissement": "Contrôle de forme et de cohérence ; ne juge pas la justesse pédagogique."
+}

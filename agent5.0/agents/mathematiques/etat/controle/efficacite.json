@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-23T05:53:28+01:00",
+  "n_actuel": 1,
+  "n_dernier_actif": 1,
+  "reconstitue_depuis_taches": false,
+  "parametres": {
+    "chauffe_s": 120,
+    "trou_max_s": 300,
+    "min_taches": 10,
+    "min_minutes": 10,
+    "seuil_gain": 0.1,
+    "tol_perte": 0.05,
+    "seuil_verrou": 0.05,
+    "seuil_saturation": 0.8,
+    "hausse_erreurs": 0.1
+  },
+  "paliers": [
+    {
+      "n": 1,
+      "heures": 0.05,
+      "minutes": 3.0,
+      "types": {}
+    }
+  ],
+  "par_type": {},
+  "verdict": "insuffisant",
+  "message": "Aucune tâche mesurable pour l'instant.",
+  "recommandation": "Laissez tourner : il faut au moins 10 tâches et 10 min à un même nombre d'instances.",
+  "type_dominant": null
+}

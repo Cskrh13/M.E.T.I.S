@@ -1,0 +1,7 @@
+{"date": "2026-11-23T05:34:25+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle1-2-3 - EMC.pdf", "pages": 31, "segments": 89, "remplace": false}
+{"date": "2026-11-23T05:38:47+01:00", "evenement": "ecarte", "motif": "citation_introuvable", "fichier": "0. Programmes Cycle1-2-3 - EMC.pdf", "page": "1", "intitule": "Les règles collectives et l'autonomie"}
+{"date": "2026-11-23T05:38:47+01:00", "evenement": "ecarte", "motif": "citation_introuvable", "fichier": "0. Programmes Cycle1-2-3 - EMC.pdf", "page": "1", "intitule": "Être élève à l'école de la République"}
+{"date": "2026-11-23T05:38:47+01:00", "evenement": "ecarte", "motif": "citation_introuvable", "fichier": "0. Programmes Cycle1-2-3 - EMC.pdf", "page": "1", "intitule": "L'engagement pour le bien commun"}
+{"date": "2026-11-23T05:38:47+01:00", "evenement": "ecarte", "motif": "citation_introuvable", "fichier": "0. Programmes Cycle1-2-3 - EMC.pdf", "page": "1", "intitule": "Faire société"}
+{"date": "2026-11-23T05:38:47+01:00", "evenement": "audit", "resume": {"ids_dupliques": 0, "prerequis_inexistants": 24, "auto_dependances": 0, "objectifs_non_uniques": 0, "prerequis_posterieurs": 0, "doublons_formulation": 0, "suivantes_asymetriques": 0, "cycles": 0}}
+{"date": "2026-11-23T05:38:47+01:00", "evenement": "cycle", "mode": "complet", "statut": "travail terminé pour ce cycle", "duree_s": 262.2, "segments": 1, "affinages": 0, "erreurs": 0, "appels_llm_total": 1, "cout_llm_s": 259.6}

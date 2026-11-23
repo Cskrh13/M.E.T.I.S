@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-23T05:41:58+01:00",
+  "nombre_competences": 1007,
+  "resume": {
+    "ids_dupliques": 0,
+    "prerequis_inexistants": 28,
+    "auto_dependances": 0,
+    "objectifs_non_uniques": 0,
+    "prerequis_posterieurs": 6,
+    "doublons_formulation": 0,
+    "suivantes_asymetriques": 0,
+    "cycles": 1
+  },
+  "details": {
+    "ids_dupliques": [],
+    "prerequis_inexistants": [
+      {
+        "competence": "math_temps",
+        "prerequis": "c1_temps_reperes_temporels_gs_03"
+      },
+      {
+        "competence": "math_temps",
+        "prerequis": "c1_temps_chronologie_gs_01"
+      },
+      {
+        "competence": "math_temps",
+        "prerequis": "c1_temps_duree_gs_02"
+      },
+      {
+        "competence": "math_temps__obj_02",
+        "prerequis": "c1_temps_reperes_temporels_gs_03"
+      },
+      {
+        "competence": "math_temps__obj_02",
+        "prerequis": "c1_temps_chronologie_gs_01"
+      },
+      {
+        "competence": "math_temps__obj_02",
+        "prerequis": "c1_temps_duree_gs_02"
+      },
+      {
+        "competence": "math_temps__obj_03",
+        "prerequis": "c1_temps_reperes_temporels_gs_03"
+      },
+      {
+        "competence": "math_temps__obj_03",
+        "prerequis": "c1_temps_chronologie_gs_01"
+      },
+      {
+        "competence": "math_temps__obj_03",
+        "prerequis": "c1_temps_duree_gs_02"
+      },
+      {
+        "competence": "math_reperage_espace",
+        "prerequis": "c1_espace_representer_l_espace_gs_01"
+      },
+      {
+        "competence": "math_reperage_espace",
+        "prerequis": "c1_espace_representer_l_espace_gs_04"
+      },
+      {
+        "competence": "math_reperage_espace",
+        "prerequis": "c1_espace_representer_l_espace_gs_06"
+      },
+      {
+        "competence": "math_reperage_espace__obj_02",
+        "prerequis": "c1_espace_representer_l_espace_gs_01"
+      },
+      {
+        "competence": "math_reperage_espace__obj_02",
+        "prerequis": "c1_espace_representer_l_espace_gs_04"
+      },
+      {
+        "competence": "math_reperage_espace__obj_02",
+        "prerequis": "c1_espace_representer_l_espace_gs_06"
+      },
+      {
+        "competence": "math_reperage_espace__obj_03",
+        "prerequis": "c1_espace_representer_l_espace_gs_01"
+      },
+      {
+        "competence": "math_reperage_espace__obj_03",
+        "prerequis": "c1_espace_representer_l_espace_gs_04"
+      },
+      {
+        "competence": "math_reperage_espace__obj_03",
+        "prerequis": "c1_espace_representer_l_espace_gs_06"
+      },
+      {
+        "competence": "math_c3_cm1_pensee_informatique_produire_et_interpreter_des_codages_de_deplacements",
+        "prerequis": "st_objet_technique_dispositifs_numeriques_ce2"
+      },
+      {
+        "competence": "math_c3_cm1_pensee_informatique_produire_et_interpreter_des_codages_de_deplacements",
+        "prerequis": "st_objet_technique_traitement_texte_ce2"
+      },
+      {
+        "competence": "math_c3_cm1_pensee_informatique_produire_et_interpreter_des_codages_de_deplacements",
+        "prerequis": "st_objet_technique_moteur_recherche_ce2"
+      },
+      {
+        "competence": "math_c3_cm1_pensee_informatique_utiliser_des_programmes_de_construction_geometrique_et_des_programmes_de_ca",
+        "prerequis": "st_objet_technique_moteur_recherche_ce2"
+      },
+      {
+        "competence": "math_c3_cm1_pensee_informatique_utiliser_des_programmes_de_construction_geometrique_et_des_programmes_de_ca",
+        "prerequis": "st_objet_technique_traitement_texte_ce2"
+      },
+      {
+        "competence": "math_c3_cm1_pensee_informatique_utiliser_des_programmes_de_construction_geometrique_et_des_programmes_de_ca",
+        "prerequis": "sciences_ce2_matiere_mouvement_energie_information_utiliser_des_outils_et_des_instruments_pour_mesurer_et_observer"
+      },
+      {
+        "competence": "math_c3_cm2_pensee_informatique_produire_des_codages_de_deplacements_dans_differents_environnements",
+        "prerequis": "sciences_technologie_c3_cm1_matiere_mouvement_energie_information_identifier_les_etats_de_la_matiere_et_caracteriser_quelques_proprietes"
+      },
+      {
+        "competence": "math_c3_cm2_pensee_informatique_utiliser_des_algorithmes_doperations_programmes_de_construction_et_programm",
+        "prerequis": "sciences_technologie_c3_cm1_matiere_mouvement_energie_information_utiliser_des_objets_techniques_en_respectant_les_regles_de_securite"
+      },
+      {
+        "competence": "math_c3_6e_pensee_informatique_utiliser_et_produire_des_codages_de_deplacements_dans_des_environnements_va",
+        "prerequis": "sciences_technologie_c3_cm2_matiere_mouvement_energie_information_utiliser_des_instruments_de_mesure_et_enregistrer_des_donnees"
+      },
+      {
+        "competence": "math_c3_6e_pensee_informatique_raisonner_a_laide_dalgorithmes_de_programmes_de_calcul_et_de_constructions",
+        "prerequis": "sciences_technologie_c3_cm2_matiere_mouvement_energie_information_identifier_les_melanges_et_les_solutions_et_mettre_en_uvre_des_procede"
+      }
+    ],
+    "auto_dependances": [],
+    "objectifs_non_uniques": [],
+    "prerequis_posterieurs": [
+      {
+        "competence": "math_c3_cm1_comparer_et_denombrer_des_collections_en_les_organisant",
+        "prerequis": "math_nombres_cycle3_6e__obj_05"
+      },
+      {
+        "competence": "math_c3_cm1_connaitre_et_utiliser_les_unites_de_longueur_du_millimetre_au_kilometre_et_les_symboles_associes",
+        "prerequis": "math_grandeurs_mesures_6e__obj_04"
+      },
+      {
+        "competence": "math_c3_cm1_savoir_que_le_perimetre_du_disque_est_proportionnel_a_son_diametre",
+        "prerequis": "math_c3_cm2_resoudre_des_problemes_a_une_ou_plusieurs_etapes_impliquant_des_durees"
+      },
+      {
+        "competence": "math_c3_cm1_utiliser_le_vocabulaire_geometrique_approprie_dans_le_contexte_d_apprentissage_des_notions_correspondantes",
+        "prerequis": "math_espace_geometrie_6e__obj_03"
+      },
+      {
+        "competence": "math_c3_cm1_recueillir_des_donnees_et_produire_un_tableau_un_diagramme_en_barres_ou_un_ensemble_de_points_dans_un_repere_pour_les_presenter",
+        "prerequis": "math_pensee_informatique_6e__obj_03"
+      },
+      {
+        "competence": "math_c3_cm1_savoir_resoudre_un_probleme_de_proportionnalite",
+        "prerequis": "math_c3_6e_comparer_des_resultats_d_une_experience_aleatoire_repetee_a_une_probabilite_calculee"
+      }
+    ],
+    "doublons_formulation": [],
+    "suivantes_asymetriques": [],
+    "cycles": [
+      [
+        "math_c3_cm1_calculer_l_aire_d_un_carre_ou_d_un_rectangle",
+        "math_c3_cm1_connaitre_la_formule_de_l_aire_d_un_carre_ou_d_un_rectangle",
+        "math_c3_cm1_effectuer_des_conversions_d_aire",
+        "math_c3_cm1_resoudre_des_problemes_impliquant_des_longueurs",
+        "math_c3_cm1_calculer_des_perimetres_de_figures_composees",
+        "math_c3_cm1_calculer_le_perimetre_d_un_disque",
+        "math_c3_cm1_connaitre_la_formule_du_perimetre_d_un_disque",
+        "math_c3_cm1_savoir_que_le_perimetre_du_disque_est_proportionnel_a_son_diametre",
+        "math_c3_cm2_resoudre_des_problemes_a_une_ou_plusieurs_etapes_impliquant_des_durees",
+        "math_c3_cm1_resoudre_des_problemes_impliquant_des_horaires_et_des_durees",
+        "math_c3_cm1_effectuer_des_calculs_sur_des_horaires_et_des_durees",
+        "math_c3_cm1_determiner_un_volume",
+        "math_c3_cm1_comparer_des_volumes",
+        "math_c3_cm1_connaitre_l_unite_centimetre_cube",
+        "math_c3_cm1_calculer_l_aire_d_un_carre_ou_d_un_rectangle"
+      ]
+    ]
+  },
+  "avertissement": "Contrôle de forme et de cohérence ; ne juge pas la justesse pédagogique."
+}

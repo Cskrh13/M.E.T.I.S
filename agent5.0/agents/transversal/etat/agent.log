@@ -1,0 +1,15 @@
+Agent 5.0 (agent-0001, instance 0) — 203 compétences
+Documents surveillés : H:\GrandPlanificateur\agents\agent5.0\agents\transversal\documents
+Validation humaine   : H:\GrandPlanificateur\agents\agent5.0\agents\transversal\etat\validation\a_valider.csv
+LLM : disponible
+[NOUVEAU] 0. Programmes Cycle1-2-3 - EMC.pdf : 31 page(s), 89 segment(s)
+[05:34:28] 0. Programmes Cycle1-2-3 - EMC.pdf — segment 1/89 (page 1)…
+[AUDIT] 210 compétences — prerequis_inexistants=24
+[CYCLE] complet — 1 segment(s), 0 affinage(s), 262 s
+[05:38:49] 0. Programmes Cycle1-2-3 - EMC.pdf — segment 2/89 (page 1)…
+Agent 5.0 (agent-0001, instance 0) — 210 compétences
+Documents surveillés : H:\GrandPlanificateur\agents\agent5.0\agents\transversal\documents
+Validation humaine   : H:\GrandPlanificateur\agents\agent5.0\agents\transversal\etat\validation\a_valider.csv
+LLM : disponible
+[05:53:32] 0. Programmes Cycle1-2-3 - EMC.pdf — segment 2/89 (page 1)…
+[05:53:46] 0. Programmes Cycle1-2-3 - EMC.pdf — segment 3/89 (page 2)…

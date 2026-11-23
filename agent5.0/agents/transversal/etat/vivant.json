@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-23T05:53:46+01:00",
+  "instance": 0,
+  "statut": "travail : 0. Programmes Cycle1-2-3 - EMC.pdf — segment 3/89 (page 2)",
+  "dernier_travail": "2026-11-23T05:53:46+01:00",
+  "erreur": null,
+  "valide_jusqua": "2026-11-23T06:10:16+01:00",
+  "appels_llm_total": 1,
+  "resume": {
+    "jour": {
+      "date": "2026-11-23",
+      "actions": 1,
+      "erreurs": 0,
+      "attente_s": 0
+    },
+    "restant": {},
+    "stats_llm": {
+      "jetons_prompt": 438,
+      "jetons_reponse": 5,
+      "duree_totale_s": 12.1,
+      "duree_chargement_s": 7.1,
+      "duree_prompt_s": 4.3,
+      "duree_generation_s": 0.7
+    }
+  }
+}

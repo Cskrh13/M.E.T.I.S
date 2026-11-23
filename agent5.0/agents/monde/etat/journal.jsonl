@@ -1,0 +1,9 @@
+{"date": "2026-11-23T05:34:25+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle 1 2025 - ecrit&lecture.pdf", "pages": 13, "segments": 35, "remplace": false}
+{"date": "2026-11-23T05:34:25+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf", "pages": 15, "segments": 42, "remplace": false}
+{"date": "2026-11-23T05:34:26+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle 2 2025 - Math#U00e9matiques.pdf", "pages": 38, "segments": 100, "remplace": false}
+{"date": "2026-11-23T05:34:26+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle 3 2025 - Math#U00e9matiques.pdf", "pages": 28, "segments": 75, "remplace": false}
+{"date": "2026-11-23T05:34:26+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle1-2-3 - EMC.pdf", "pages": 31, "segments": 89, "remplace": false}
+{"date": "2026-11-23T05:34:26+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle1-2-3 - EVAR.pdf", "pages": 18, "segments": 33, "remplace": false}
+{"date": "2026-11-23T05:34:27+01:00", "evenement": "erreur_cycle", "erreur": "PermissionError(13, 'Accès refusé')"}
+{"date": "2026-11-23T05:34:57+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle1-2-3 - EVAR.pdf", "pages": 18, "segments": 33, "remplace": false}
+{"date": "2026-11-23T05:34:57+01:00", "evenement": "document_detecte", "fichier": "test.pdf", "pages": 28, "segments": 75, "remplace": false}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-23T05:53:32+01:00",
+  "instance": 0,
+  "statut": "travail : 0. Programmes Cycle 1 2025 - ecrit&lecture.pdf — segment 1/35 (page 1)",
+  "dernier_travail": null,
+  "erreur": null,
+  "valide_jusqua": "2026-11-23T06:10:02+01:00",
+  "appels_llm_total": 0,
+  "resume": {
+    "jour": {
+      "date": "2026-11-23",
+      "actions": 0,
+      "erreurs": 0,
+      "attente_s": 0
+    },
+    "restant": {},
+    "stats_llm": {}
+  }
+}

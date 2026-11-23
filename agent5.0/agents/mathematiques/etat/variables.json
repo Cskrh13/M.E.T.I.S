@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "note": "Variables de départ à valider ou corriger par l'enseignant. L'agent peut en PROPOSER d'autres ; une variable proposée n'entre ici qu'après décision humaine.",
+  "variables": [
+    {
+      "id": "nature_savoir",
+      "nom": "Nature du savoir",
+      "definition": "Type de contenu appris par la compétence.",
+      "valeurs_possibles": [
+        "connaissance",
+        "savoir_faire",
+        "savoir_etre",
+        "methode"
+      ],
+      "multiple": false,
+      "origine": "graine_4.2",
+      "statut": "actif"
+    },
+    {
+      "id": "operation_cognitive",
+      "nom": "Opération cognitive dominante",
+      "definition": "Verbe d'action central de l'objectif.",
+      "valeurs_possibles": [
+        "memoriser",
+        "comprendre",
+        "appliquer",
+        "analyser",
+        "produire",
+        "comparer",
+        "manipuler"
+      ],
+      "multiple": false,
+      "origine": "graine_4.2",
+      "statut": "actif"
+    },
+    {
+      "id": "dimensions_sollicitees",
+      "nom": "Dimensions de l'apprenant sollicitées",
+      "definition": "Dimensions de la grille d'analyse (coffrefort.odt) mobilisées par la compétence.",
+      "valeurs_possibles": [
+        "affectif",
+        "social",
+        "cognitif",
+        "sensorimoteur"
+      ],
+      "multiple": true,
+      "origine": "graine_4.2 (coffrefort.odt)",
+      "statut": "actif"
+    },
+    {
+      "id": "charge_langagiere",
+      "nom": "Charge langagière",
+      "definition": "Part du langage dans la tâche.",
+      "valeurs_possibles": [
+        "faible",
+        "moyenne",
+        "forte"
+      ],
+      "multiple": false,
+      "origine": "graine_4.2",
+      "statut": "actif"
+    },
+    {
+      "id": "representation_attendue",
+      "nom": "Représentation attendue",
+      "definition": "Mode de représentation sur lequel s'appuie la compétence.",
+      "valeurs_possibles": [
+        "manipulation",
+        "image_schema",
+        "symbolique",
+        "verbal"
+      ],
+      "multiple": true,
+      "origine": "graine_4.2",
+      "statut": "actif"
+    }
+  ],
+  "propositions": [],
+  "dimensions_apprenant": {
+    "note": "Socle du futur 'sujet apprenant' : domaines issus de coffrefort.odt. Les variables de chaque dimension restent à construire (référentiels BARRY et S4C), pas encore implémentées.",
+    "domaines": [
+      {
+        "id": "affectif",
+        "referentiel": "BARRY"
+      },
+      {
+        "id": "social",
+        "referentiel": "BARRY"
+      },
+      {
+        "id": "cognitif",
+        "referentiel": "BARRY"
+      },
+      {
+        "id": "sensorimoteur",
+        "referentiel": null
+      },
+      {
+        "id": "mathematiques",
+        "referentiel": "S4C"
+      },
+      {
+        "id": "francais",
+        "referentiel": "S4C"
+      }
+    ]
+  }
+}

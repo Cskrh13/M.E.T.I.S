@@ -1,0 +1,6 @@
+{"date": "2026-11-23T05:34:25+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf", "pages": 15, "segments": 42, "remplace": false}
+{"date": "2026-11-23T05:34:26+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle 2 2025 - Math#U00e9matiques.pdf", "pages": 38, "segments": 100, "remplace": false}
+{"date": "2026-11-23T05:34:26+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle 3 2025 - Math#U00e9matiques.pdf", "pages": 28, "segments": 75, "remplace": false}
+{"date": "2026-11-23T05:34:26+01:00", "evenement": "document_detecte", "fichier": "test.pdf", "pages": 28, "segments": 75, "remplace": false}
+{"date": "2026-11-23T05:41:58+01:00", "evenement": "audit", "resume": {"ids_dupliques": 0, "prerequis_inexistants": 28, "auto_dependances": 0, "objectifs_non_uniques": 0, "prerequis_posterieurs": 6, "doublons_formulation": 0, "suivantes_asymetriques": 0, "cycles": 1}}
+{"date": "2026-11-23T05:41:59+01:00", "evenement": "cycle", "mode": "complet", "statut": "travail terminé pour ce cycle", "duree_s": 453.6, "segments": 1, "affinages": 0, "erreurs": 0, "appels_llm_total": 1, "cout_llm_s": 450.3}

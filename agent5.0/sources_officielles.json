@@ -1,0 +1,11 @@
+{
+  "_mode_emploi": "Le chercheur ne télécharge QUE depuis ces sites (et leurs sous-domaines), uniquement des PDF, en https. Pour ajouter une source, ajoutez son nom de domaine dans « hotes ». « pages_de_depart » : pages explorées (2 niveaux) pour trouver les PDF qui correspondent à une demande ; ajoutez-y l'adresse exacte des pages de programmes pour de meilleurs résultats.",
+  "hotes": ["eduscol.education.fr", "education.gouv.fr"],
+  "pages_de_depart": ["https://eduscol.education.fr/", "https://www.education.gouv.fr/"],
+  "max_mo": 80,
+  "max_pages_explorees": 25,
+  "profondeur": 2,
+  "budget_s": 90,
+  "pause_s": 1.0,
+  "autoriser_http_local": false
+}

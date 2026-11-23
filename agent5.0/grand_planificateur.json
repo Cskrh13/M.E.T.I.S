@@ -1,0 +1,16 @@
+{
+  "actifs": [
+    "chercheur",
+    "comp-mathematiques",
+    "comp-langages"
+  ],
+  "redemarrage_auto": true,
+  "max_redemarrages_par_heure": 5,
+  "delai_arret_s": 120,
+  "silence_alerte_s": 900,
+  "options_agent": [],
+  "controle": true,
+  "instances": {},
+  "max_instances_par_famille": 4,
+  "port": 8766
+}

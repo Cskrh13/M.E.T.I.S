@@ -1,0 +1,105 @@
+GRAND PLANIFICATEUR 5.0 — plusieurs instances d'un même agent
+==============================================================
+
+PREMIER DÉMARRAGE — POURQUOI JE NE VOIS QUE LE CHERCHEUR ?
+  Un agent-compétences n'existe que s'il y a un fichier agents\<famille>\competences.json. Tant que ce fichier manque, le
+  tableau de bord n'affiche que le chercheur et le dit en haut de page. Il se crée une fois, avec :
+      python migration_familles.py               (simulation : liste les familles, n'écrit rien)
+      python migration_familles.py --appliquer   (écrit agents\<famille>\competences.json ; votre competences.json d'origine
+                                                  est copié dans sauvegardes\ et n'est jamais modifié)
+  Pas besoin de relancer le Grand Planificateur : les familles apparaissent d'elles-mêmes dans les secondes qui suivent, et
+  celles de la clé "actifs" démarrent (par défaut : mathematiques et langages). Les nouvelles familles repartent d'un état
+  vide : les documents de agents\<famille>\documents\ sont relus une première fois.
+
+LES CARTES DU TABLEAU DE BORD
+  Chercheur         Indexe les documents du dossier documents\ (recherche) et COPIE chacun dans agents\<famille>\documents\
+                    selon sa discipline. Quand il hésite entre deux familles, il ne copie pas : il écrit le fichier dans
+                    chercheur\a_router\a_router.csv. Il ne lit PAS la colonne « famille_choisie_par_vous » : c'est à vous de
+                    copier le fichier dans le bon dossier agents\<famille>\documents\.
+  Instance n        Un agent-compétences (voir plus bas). Instance 1 = principale.
+  Agent de contrôle Ne fait aucun appel au LLM. Il n'a rien à afficher tant qu'aucune famille n'existe et qu'aucune instance
+                    n'a travaillé ; ensuite il écrit son verdict en tête de chaque famille.
+
+CE QUI CHANGE
+  Le tableau de bord du Grand Planificateur (python grand_planificateur.py --ouvrir, ou lancer_grand_planificateur.bat)
+  regroupe maintenant les agents par famille. Pour chaque famille d'agent-compétences :
+     « + Ajouter une instance »   lance un processus de plus (jusqu'à max_instances_par_famille, 4 par défaut)
+     « − Retirer une instance »   arrête proprement la dernière instance (elle finit sa tâche), puis la retire
+     « Démarrer / Arrêter la famille », et Démarrer / Arrêter / Redémarrer pour chaque instance.
+  Le nombre d'instances est mémorisé dans grand_planificateur.json (clé "instances") et retrouvé au lancement suivant.
+  Le chercheur reste en un seul exemplaire : il tient un index unique que deux instances écraseraient.
+
+COMMENT LES INSTANCES SE PARTAGENT LE TRAVAIL (sans se marcher dessus)
+  - Toutes les instances d'une famille lisent et écrivent le MÊME competences.json et le même dossier etat\.
+  - Avant chaque appel au LLM, l'instance RÉSERVE sa tâche (un segment de document, ou une compétence à affiner)
+    dans etat.json : deux instances ne reçoivent jamais la même. Réservation oubliée (instance morte) : elle expire
+    toute seule (délai LLM + 2 min) ; une instance qui redémarre libère les siennes.
+  - Le résultat est appliqué dans une transaction : verrou (etat\verrou.lock) -> relecture du disque -> modification ->
+    écriture. Le verrou n'est jamais gardé pendant l'appel au LLM, donc les instances travaillent bien en même temps.
+  - Une compétence créée par une instance est vue par les autres (pas de doublon) ; un affinage n'écrase jamais
+    celui d'une autre instance.
+  - Dossiers : instance 1 = etat\ (inchangé, compatible 4.2) ; instance 2 = etat\instances\1\ ; instance 3 = etat\instances\2\ ...
+    Chaque instance y a son vivant.json, agent.log, journal_lisible.log et son arret.txt. Identité : agent-0001,
+    agent-0001-i2, agent-0001-i3... (visible dans la provenance des compétences).
+  - Validations : UN seul a_valider.csv par famille. Les décisions saisies dans le CSV mais pas encore appliquées ne sont
+    plus effacées quand une instance réécrit le fichier, et il n'est réécrit que si son contenu change.
+  - Un etat.json de la 4.2 est relu tel quel (l'ancien pointeur « suivant » est converti en liste de segments faits).
+
+LANCER À LA MAIN (sans tableau de bord)
+  python agent4_2.py --competences agents\maths\competences.json --documents agents\maths\documents --donnees agents\maths\etat --instance 0
+  python agent4_2.py ...mêmes options...  --instance 1        (autant d'instances que voulu, numéros différents)
+
+AGENT DE CONTRÔLE : LE NOMBRE D'INSTANCES FAIT-IL PERDRE EN EFFICACITÉ ?
+  agent_controle.py (sans LLM) est lancé par le Grand Planificateur avec les autres agents (clé "controle": false pour le
+  désactiver ; il a son bouton Démarrer / Arrêter dans la section « Chercheur et contrôle »). Il n'agit sur rien : il avertit.
+  - Chaque tâche des agents laisse une ligne dans etat\taches.jsonl (instant, instance, type, durée, durée de l'appel LLM,
+    attente du verrou, réussite).
+  - Toutes les 30 s il relève combien d'instances VIVENT et TRAVAILLENT réellement (etat\controle\echantillons.jsonl).
+  - Toutes les 5 min il (re)calcule, pour chaque famille et chaque type de tâche (segment / affinage, jamais mélangés) :
+        débit en tâches/h pour chaque nombre d'instances N, accélération, efficacité (100 % = chaque instance apporte autant
+        que la première), gain par rapport au N précédent, durée d'un appel, attente du verrou, taux d'erreur.
+    Les 2 premières minutes après chaque changement de N sont ignorées (chauffe du modèle) ; les périodes où le contrôle
+    était arrêté aussi. Résultats : etat\controle\efficacite.json et rapport_efficacite.md.
+  - Verdicts affichés en tête de chaque famille dans le tableau de bord :
+        OK               chaque instance ajoutée a apporté au moins +10 % de débit
+        À SURVEILLER     la dernière instance apporte moins de +10 % (ou N dépasse l'optimum observé)
+        PERTE            le débit BAISSE de plus de 5 % en ajoutant des instances -> « Repassez à k instance(s) »
+        MESURE EN COURS  N vient de changer, pas encore assez de tâches
+        INSUFFISANT      une seule valeur de N observée, ou trop peu de tâches/minutes : l'agent ne conclut pas
+    Causes signalées : appels LLM qui s'allongent comme N (Ollama les traite l'un après l'autre : OLLAMA_NUM_PARALLEL),
+    attente du verrou sur competences.json, taux d'erreur en hausse.
+  - Pour obtenir un verdict il faut FAIRE VARIER N : par exemple 1 puis 2 puis 3 instances, 20 à 30 minutes chacun, avec
+    les mêmes réglages Ollama. Tant que N ne change pas, l'agent le dit au lieu de conclure.
+  - Seuils réglables : agent_controle.py --chauffe-s 120 --min-taches 10 --min-minutes 10 --seuil-gain 0.10
+  - Sans agent de contrôle, on peut analyser après coup (le nombre d'instances est alors reconstitué à partir des tâches) :
+        python mesure_efficacite.py --donnees agents\mathematiques\etat [--fenetre-h 24] [--json]
+  Limite assumée : c'est une mesure OBSERVÉE en conditions réelles, pas une expérience contrôlée (la difficulté des tâches et
+  la charge de la machine varient). Pour trancher un cas limite, refaites un palier propre. L'agent ne démarre ni n'arrête
+  jamais d'instance tout seul : la décision reste la vôtre.
+
+POINTS D'ATTENTION
+  1. Ollama : pour que N instances soient servies réellement en parallèle, quitter Ollama puis  setx OLLAMA_NUM_PARALLEL N
+     et relancer Ollama. Sinon les appels font la queue. Sur CPU, deux appels simultanés vont chacun plus lentement : le gain
+     peut être modeste. Mesurez (secondes_par_appel dans vivant.json) avant d'ajouter des instances.
+  2. --appels-heure s'applique à CHAQUE instance (le budget n'est pas mutualisé).
+  3. Chaque résultat appliqué réécrit competences.json (indenté) : environ 0,5 s sur le fichier complet de 5,6 Mo, verrou tenu.
+     Négligeable face à un appel LLM de plusieurs secondes, mais ne cherchez pas à dépasser 4 instances par famille.
+  4. Un document ajouté dans documents\ pendant que plusieurs instances tournent est repéré par la première qui le voit.
+
+INSTALLATION
+  Remplacer : agent4_2_core.py, agent4_2.py, grand_planificateur.py. Ajouter : partage.py, mesure_efficacite.py, agent_controle.py. Le reste est inchangé.
+  Si votre grand_planificateur.json existe déjà, la clé "actifs" ne contient pas « controle » : il démarre quand même (clé "controle": true par défaut).
+  Version affichée : 5.0 (agent, tableau de bord, /api/status).
+
+TESTS (aucun n'utilise Ollama ni vos données : copies temporaires, faux LLM)
+  python test_agent5_instances.py          verrou ; 3 instances en fils ; 2 processus réels face à un faux serveur Ollama
+  python test_grand_planificateur_5.py     ajout / retrait / persistance / arrêt propre / API HTTP du tableau de bord
+  python test_controle.py                  mesure d'efficacité sur données à débit connu (perte, gain faible, saturation, chauffe, trous)
+                                           + chaîne complète agents -> taches.jsonl -> agent_controle -> tableau de bord
+  python test_agent4_2_e0.py               tests existants (inchangés, passent)   — environ 80 s, voir point 3
+  Vérifié : chaque segment traité une fois, chaque compétence affinée une fois, aucun identifiant perdu ni dupliqué.
+
+CORRECTIONS DANS L'ARCHIVE REÇUE
+  - grand_planificateur.py ne démarrait pas : erreur de syntaxe dans Superviseur.action (ligne « return » en trop après le
+    redémarrage). Corrigée.
+  - LISEZMOI_parallele.txt et test_agent4_2_parallele.py décrivaient du code absent de l'archive : rangés dans archives_4_2\.

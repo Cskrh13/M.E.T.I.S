@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Synapses — Tableau de bord des compétences</title>
+<style>
+:root{--fond:#f4f6f8;--carte:#fff;--encre:#1c2433;--doux:#667085;--trait:#d9dee5;--marine:#1d2a4a;--propose:#b7791f;--actif:#2f7d5b;--rejete:#8b929a;--affine:#2b5fa8;--alerte:#b3372f;--heat:47,125,91}
+@media(prefers-color-scheme:dark){:root{--fond:#12161d;--carte:#1b212b;--encre:#e6e9ee;--doux:#98a2b3;--trait:#2d3644;--marine:#0e1320;--propose:#e0a53a;--actif:#4fb287;--rejete:#7d8591;--affine:#6b9be0;--alerte:#e5736a;--heat:79,178,135}}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{font:14px/1.45 "Segoe UI",system-ui,sans-serif;background:var(--fond);color:var(--encre);display:flex;flex-direction:column}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;margin:0;font-weight:600}
+header{background:var(--marine);color:#fff;padding:10px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+header h1{font-size:19px}header .sous{opacity:.7;font-size:12px}
+#live{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:13px}
+.pt{width:10px;height:10px;border-radius:50%;background:#888}.pt.on{background:#4ade80;animation:p 2s infinite}.pt.off{background:#f87171}.pt.att{background:#fbbf24}
+@keyframes p{50%{opacity:.35}}
+#barre{display:flex;gap:10px;padding:10px 18px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--trait);background:var(--carte)}
+#barre input{flex:1;min-width:200px;padding:7px 10px;border:1px solid var(--trait);border-radius:6px;background:var(--fond);color:var(--encre);font:inherit}
+.chiffres{display:flex;gap:16px;font-size:13px;color:var(--doux)}.chiffres b{color:var(--encre);font-size:15px}
+main{flex:1;display:flex;min-height:0}
+#gauche{flex:1;overflow:auto;padding:14px 18px}
+#droite{width:410px;border-left:1px solid var(--trait);background:var(--carte);display:flex;flex-direction:column;min-height:0}
+nav.onglets{display:flex;border-bottom:1px solid var(--trait)}
+nav.onglets button{flex:1;padding:10px 4px;border:0;background:none;color:var(--doux);font:inherit;cursor:pointer;border-bottom:3px solid transparent}
+nav.onglets button.sel{color:var(--encre);border-bottom-color:var(--affine);font-weight:600}
+nav.onglets .n{background:var(--propose);color:#fff;border-radius:9px;padding:0 6px;font-size:11px;margin-left:4px}
+#contenu{flex:1;overflow:auto;padding:14px}
+table.mat{border-collapse:separate;border-spacing:2px;width:100%}
+.mat th{font-weight:600;font-size:12px;color:var(--doux);padding:4px}
+.mat th.dom{text-align:left;white-space:nowrap;padding-right:10px;max-width:230px;overflow:hidden;text-overflow:ellipsis}
+.mat td{height:34px;text-align:center;border-radius:4px;cursor:pointer;position:relative;font-variant-numeric:tabular-nums;background:rgba(var(--heat),calc(var(--a,0)*.85));min-width:46px}
+.mat td.vide{background:transparent;cursor:default;color:var(--trait)}
+.mat td:hover{outline:2px solid var(--affine)}.mat td.sel{outline:3px solid var(--encre)}
+.mat td .p{position:absolute;top:1px;right:3px;font-size:10px;color:var(--propose);font-weight:700}
+.mat td.neuf{animation:fl 7s ease-out}
+@keyframes fl{0%,40%{box-shadow:0 0 0 3px var(--propose)}100%{box-shadow:0 0 0 0 transparent}}
+.legende{display:flex;gap:16px;flex-wrap:wrap;margin:12px 2px;font-size:12px;color:var(--doux)}
+.legende i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+.b{display:inline-block;border-radius:4px;padding:0 7px;font-size:12px;color:#fff}
+.b.propose{background:var(--propose)}.b.actif{background:var(--actif)}.b.rejete{background:var(--rejete)}
+.ligne{padding:8px 4px;border-bottom:1px solid var(--trait);cursor:pointer}.ligne:hover{background:var(--fond)}
+.ligne small,.doux{color:var(--doux)}.ligne.neuf{animation:fl 7s ease-out}
+h3{font-size:15px;margin:14px 0 6px}h2{font-size:17px;margin-bottom:6px}
+.carte{border:1px solid var(--trait);border-radius:8px;padding:10px;margin-bottom:10px}
+.bar{height:8px;background:var(--trait);border-radius:4px;overflow:hidden}.bar>div{height:100%;background:var(--affine)}
+.ev{padding:5px 0;border-bottom:1px dashed var(--trait);font-size:13px}.ev time{color:var(--doux);font-size:11px;margin-right:6px}
+.alerte{color:var(--alerte);font-weight:600}
+button.lien{background:none;border:0;color:var(--affine);cursor:pointer;font:inherit;padding:0;text-align:left}
+.val{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:13px}
+@media(max-width:900px){main{flex-direction:column}#droite{width:auto;border-left:0;border-top:1px solid var(--trait);max-height:55vh}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<header><div><h1>Tableau de bord des compétences</h1><div class="sous">Synapses — lecture en direct de l'agent 4.2, sans rien modifier</div></div>
+<div id="live"><span class="pt" id="pt"></span><span id="liveTxt">Connexion…</span></div></header>
+<div id="barre"><input id="q" type="search" placeholder="Filtrer par mot : intitulé, domaine, identifiant…">
+<label><input type="checkbox" id="seulPropose"> seulement les propositions</label>
+<div class="chiffres" id="chiffres"></div></div>
+<main><section id="gauche"><div id="matrice"></div>
+<div class="legende"><span><i style="background:rgb(var(--heat))"></i>plus la case est foncée, plus il y a de compétences</span><span><i style="background:var(--propose)"></i>chiffre orange : propositions à valider</span><span>Cliquez une case pour voir ses compétences.</span></div></section>
+<aside id="droite"><nav class="onglets" id="onglets"></nav><div id="contenu"></div></aside></main>
+<script>
+"use strict";
+const NIV=["TPS","PS","MS","GS","CP","CE1","CE2","CM1","CM2","6e"],AUTRES="Autres";
+const S={comps:[],byId:{},mtime:null,agent:null,onglet:"comp",cell:null,sel:null,sig:{},neuf:new Map(),premier:true};
+const $=i=>document.getElementById(i),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const colN=c=>NIV.includes(c.niveau)?c.niveau:AUTRES;
+async function j(u){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error(u+" "+r.status);return r.json()}
+function ingere(liste){
+  const sig={},now=Date.now();
+  for(const c of liste){const s=c.statut+"|"+Object.keys((c.affinage||{}).valeurs||{}).length+"|"+(c.prerequis_competences||[]).length;sig[c.id]=s;
+    if(!S.premier&&S.sig[c.id]!==s)S.neuf.set(c.id,now)}
+  S.sig=sig;S.comps=liste;S.byId=Object.fromEntries(liste.map(c=>[c.id,c]));S.premier=false}
+const recent=id=>Date.now()-(S.neuf.get(id)||0)<7000;
+async function tick(){
+  try{const a=await j("/api/agent");
+    if(a.mtime_competences!==S.mtime){const d=await j("/api/competences");ingere(d.competences||[]);S.mtime=a.mtime_competences}
+    S.agent=a;vivant(a,true);rendre()}
+  catch(e){vivant(null,false)}}
+function il_y_a(d){if(!d)return"jamais";const s=Math.round((Date.now()-new Date(d))/1000);return s<90?s+" s":s<5400?Math.round(s/60)+" min":Math.round(s/3600)+" h"}
+function vivant(a,ok){const pt=$("pt"),t=$("liveTxt");
+  if(!ok){pt.className="pt off";t.textContent="Serveur injoignable — relancez serveur_tableau.py";return}
+  const v=a.vivant;
+  if(!v){pt.className="pt";t.textContent="L'agent n'a encore rien écrit (est-il lancé ?)";return}
+  const vif=Date.now()<new Date(v.valide_jusqua).getTime(),trav=String(v.statut).startsWith("travail :");
+  if(!vif){pt.className="pt off";t.textContent="Agent arrêté ? Dernier signe de vie il y a "+il_y_a(v.date)+" — dernier vrai travail il y a "+il_y_a(v.dernier_travail);return}
+  if(trav){pt.className="pt on";t.textContent="Analyse en cours — "+String(v.statut).slice(9)+" (début il y a "+il_y_a(v.date)+")";return}
+  pt.className="pt att";t.textContent="Agent en marche mais N'ANALYSE PAS — "+v.statut+" · dernier vrai travail il y a "+il_y_a(v.dernier_travail)}
+function visibles(){const q=$("q").value.trim().toLowerCase(),p=$("seulPropose").checked;
+  return S.comps.filter(c=>(!p||c.statut==="propose")&&(!q||(c.intitule+" "+c.domaine+" "+c.id+" "+(c.theme||"")).toLowerCase().includes(q)))}
+function rendre(){matrice();chiffres();onglets();contenu()}
+function chiffres(){const n=S.comps.length,pr=S.comps.filter(c=>c.statut==="propose").length,af=S.comps.filter(c=>c.affinage).length;
+  $("chiffres").innerHTML=`<span><b>${n}</b> compétences</span><span><b>${pr}</b> propositions</span><span><b>${af}</b> affinées</span>`}
+function matrice(){const v=visibles(),cols=[...NIV];if(v.some(c=>colN(c)===AUTRES))cols.push(AUTRES);
+  const cel={},doms=new Map();let max=1;
+  for(const c of v){const d=c.domaine||"(sans domaine)",k=d+"§"+colN(c);doms.set(d,c.discipline||"");const e=cel[k]||(cel[k]={n:0,p:0,neuf:false,ids:[]});e.n++;e.ids.push(c.id);if(c.statut==="propose")e.p++;if(recent(c.id))e.neuf=true;max=Math.max(max,e.n)}
+  const lignes=[...doms.keys()].sort((a,b)=>(doms.get(a)+a).localeCompare(doms.get(b)+a,"fr"));
+  let h="<table class='mat'><thead><tr><th></th>"+cols.map(c=>`<th>${c}</th>`).join("")+"</tr></thead><tbody>";
+  for(const d of lignes){h+=`<tr><th class="dom" title="${esc(doms.get(d))}">${esc(d)}</th>`;
+    for(const c of cols){const e=cel[d+"§"+c];
+      if(!e){h+="<td class='vide'>·</td>";continue}
+      h+=`<td data-k="${esc(d+"§"+c)}" class="${S.cell===d+"§"+c?"sel ":""}${e.neuf?"neuf":""}" style="--a:${(.12+.88*e.n/max).toFixed(2)}">${e.n}${e.p?`<span class="p">${e.p}</span>`:""}</td>`}
+    h+="</tr>"}
+  $("matrice").innerHTML=h+"</tbody></table>"+(lignes.length?"":"<p class='doux'>Aucune compétence ne correspond au filtre.</p>");
+  S.cellIds=Object.fromEntries(Object.entries(cel).map(([k,e])=>[k,e.ids]));
+  $("matrice").querySelectorAll("td[data-k]").forEach(td=>td.onclick=()=>{S.cell=td.dataset.k;S.sel=null;S.onglet="comp";rendre()})}
+function onglets(){const nb=S.agent?S.agent.nb_a_valider:0;
+  const l=[["comp","Compétences"],["act","Activité"],["val","À valider"+(nb?`<span class="n">${nb}</span>`:"")],["aud","Audit"]];
+  $("onglets").innerHTML=l.map(([k,t])=>`<button data-o="${k}" class="${S.onglet===k?"sel":""}">${t}</button>`).join("");
+  $("onglets").querySelectorAll("button").forEach(b=>b.onclick=()=>{S.onglet=b.dataset.o;rendre()})}
+function contenu(){const el=$("contenu"),y=el.scrollTop;
+  el.innerHTML=({comp:vueComp,act:vueAct,val:vueVal,aud:vueAud})[S.onglet]();
+  el.scrollTop=y;
+  el.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>{S.sel=b.dataset.id;S.onglet="comp";rendre()});
+  el.querySelectorAll("[data-retour]").forEach(b=>b.onclick=()=>{S.sel=null;rendre()})}
+const badge=c=>`<span class="b ${esc(c.statut)}">${c.statut==="propose"?"proposée":c.statut==="rejete"?"rejetée":esc(c.statut)}</span>`;
+function lien(id){const c=S.byId[id];return c?`<div><button class="lien" data-id="${esc(id)}">${esc(c.intitule)}</button> <small class="doux">${esc(c.niveau)}</small></div>`:`<div class="alerte">${esc(id)} (introuvable)</div>`}
+function vueComp(){
+  if(S.sel&&S.byId[S.sel]){const c=S.byId[S.sel],a=c.affinage,pv=c.provenance;
+    const anc=new Set(),pile=[...(c.prerequis_competences||[])];while(pile.length){const x=pile.pop();if(anc.has(x)||!S.byId[x])continue;anc.add(x);pile.push(...(S.byId[x].prerequis_competences||[]))}
+    let h=`<button class="lien" data-retour>‹ retour à la liste</button><h2>${esc(c.intitule)}</h2><p>${badge(c)} <span class="doux">${esc(c.cycle)} · ${esc(c.niveau)} · ${esc(c.domaine)}${c.theme?" · "+esc(c.theme):""}</span></p><p class="doux">${esc(c.source)}<br>${esc(c.id)}</p>`;
+    if(pv)h+=`<h3>Provenance (agent)</h3><div class="carte">Fichier ${esc(pv.fichier)}, page ${esc(pv.page)}<br><i>« ${esc(pv.citation)} »</i><br><small class="doux">certitude du modèle ${esc(pv.certitude_modele)} · validation humaine : ${pv.validation_humaine?esc(pv.validation_humaine.decision):"en attente"}</small></div>`;
+    if(a){const ent=Object.entries(a.valeurs||{});h+=`<h3>Affinage (variables) <small class="doux">${esc(a.statut)}</small></h3><div class="carte val">`+(ent.map(([k,v])=>`<span class="doux">${esc(k)}</span><span>${esc([].concat(v.valeur).join(", "))} <small class="doux">(${esc(v.certitude)})</small></span>`).join("")||"<span class='doux'>aucune valeur</span>")+`</div>`+((a.non_determine||[]).length?`<small class="doux">Non déterminé : ${esc(a.non_determine.join(", "))}</small>`:"")}
+    else h+=`<h3>Affinage</h3><p class="doux">Pas encore examinée par l'agent.</p>`;
+    h+=`<h3>Prérequis directs (${(c.prerequis_competences||[]).length})</h3>`+((c.prerequis_competences||[]).map(lien).join("")||"<p class='doux'>aucun</p>");
+    h+=`<p class="doux">${anc.size} prérequis au total en remontant la chaîne.</p><h3>Compétences suivantes (${(c.competences_suivantes||[]).length})</h3>`+((c.competences_suivantes||[]).map(lien).join("")||"<p class='doux'>aucune</p>");
+    return h}
+  const ids=S.cell?(S.cellIds[S.cell]||[]):null,liste=ids?ids.map(i=>S.byId[i]):visibles().slice(0,200);
+  if(!liste.length)return "<p class='doux'>Cliquez une case de la matrice, ou tapez un mot dans le filtre.</p>";
+  const [d,n]=S.cell?S.cell.split("§"):["Résultats du filtre",""];
+  return `<h2>${esc(d)} ${n?"· "+esc(n):""}</h2><p class="doux">${liste.length} compétence(s)${!ids&&visibles().length>200?" (200 premières)":""}</p>`+liste.map(c=>`<div class="ligne ${recent(c.id)?"neuf":""}" data-id="${esc(c.id)}">${badge(c)} ${esc(c.intitule)}${c.affinage?" <small class='doux'>· affinée</small>":""}</div>`).join("")}
+const heure=d=>{try{return new Date(d).toLocaleTimeString("fr-FR")}catch(e){return""}};
+function phrase(e){const t=e.evenement;
+  if(t==="cycle")return `Cycle terminé (${String(e.mode).replace(/_/g," ")}) : ${e.segments} segment(s), ${e.affinages} affinage(s), ${e.duree_s} s`;
+  if(t==="document_detecte")return `Nouveau document : ${e.fichier} (${e.pages} page(s), ${e.segments} segment(s))`;
+  if(t==="document_termine")return `Document analysé : ${e.fichier} — ${e.ajouts} proposition(s), ${e.deja_presents} déjà présente(s)`;
+  if(t==="audit")return "Audit du référentiel : "+Object.entries(e.resume||{}).filter(([,v])=>v).map(([k,v])=>k.replace(/_/g," ")+" "+v).join(", ");
+  if(t==="ecarte")return `Écarté (${String(e.motif).replace(/_/g," ")}) : ${e.intitule}`;
+  if(t==="corroboration")return `Déjà présente, confirmée par ${e.fichier} p. ${e.page}`;
+  if(t==="decisions_appliquees")return `${e.nombre} décision(s) humaine(s) appliquée(s)`;
+  if(t==="adaptation")return `L'agent adapte son seuil de certitude à ${e.seuil} (taux d'acceptation ${e.taux_acceptation})`;
+  if(t==="erreur_llm"||t==="erreur_cycle"||t==="erreur_lecture")return "Erreur : "+(e.erreur||"");
+  if(t==="rechargement")return "competences.json modifié à la main : rechargé";
+  return t.replace(/_/g," ")}
+function vueAct(){const a=S.agent;if(!a)return"";let h="";const b=a.biome,v=a.vivant;
+  if(v&&v.erreur)h+=`<div class="carte"><b class="alerte">Dernière erreur</b><br>${esc(v.erreur)}</div>`;
+  if(b)h+=`<div class="carte"><b>${esc(b.id)}</b> <span class="doux">génération ${b.generation}</span><br>${b.bilan.propositions} proposition(s) · ${b.bilan.acceptees} acceptée(s) · ${b.bilan.refusees} refusée(s)<br><small class="doux">seuil de certitude actuel : ${b.traits.seuil_certitude}</small></div>`;
+  const f=(a.fichiers||[]).filter(x=>x.statut==="en_cours");
+  for(const x of f){const p=x.total?Math.round(100*x.suivant/x.total):0;h+=`<div class="carte">Analyse en cours : <b>${esc(x.nom)}</b><div class="bar"><div style="width:${p}%"></div></div><small class="doux">segment ${x.suivant}/${x.total} · ${x.ajouts} proposition(s)</small></div>`}
+  h+="<h3>Journal en direct</h3>"+([...(a.journal||[])].reverse().filter(e=>e.evenement!=="cycle"||true).map(e=>`<div class="ev"><time>${heure(e.date)}</time>${esc(phrase(e))}</div>`).join("")||"<p class='doux'>Le journal est vide.</p>");return h}
+function vueVal(){const a=S.agent;if(!a)return"";const L=a.a_valider||[];
+  const T={competence_nouvelle:"Nouvelle compétence",lien_prerequis:"Prérequis suggéré",decoupage:"Découpage suggéré",variable:"Nouvelle variable"};
+  let h=`<p><b>${a.nb_a_valider}</b> proposition(s) en attente.<br><span class="doux">Pour décider, écrivez accepte ou refuse dans validation/a_valider.csv (Excel). Cette page est en lecture seule.</span></p>`;
+  const c={};L.forEach(p=>c[p.type]=(c[p.type]||0)+1);h+=Object.entries(c).map(([k,v])=>`<span class="b propose" style="margin-right:6px">${T[k]||k} ${v}</span>`).join("");
+  return h+L.slice().reverse().map(p=>{const cible=S.byId[p.cible];return `<div class="ligne" ${cible?`data-id="${esc(p.cible)}"`:""}><small class="doux">${T[p.type]||p.type}</small><br>${esc(p.intitule)}${p.type==="lien_prerequis"&&S.byId[p.valeur]?`<br><small>↳ prérequis : ${esc(S.byId[p.valeur].intitule)}</small>`:p.type==="decoupage"?`<br><small>↳ ${esc(p.valeur)}</small>`:""}<br><small class="doux">${esc(p.justification)}</small></div>`}).join("")}
+function vueAud(){const c=S.agent&&S.agent.constats;if(!c)return"<p class='doux'>Pas encore d'audit. Lancez l'agent (ou python agent4_2.py --audit).</p>";
+  const nom={ids_dupliques:"Identifiants en double",prerequis_inexistants:"Prérequis vers une compétence inexistante",auto_dependances:"Compétence prérequise d'elle-même",objectifs_non_uniques:"Compétences sans objectif unique",prerequis_posterieurs:"Prérequis d'un niveau postérieur",doublons_formulation:"Formulations en double",suivantes_asymetriques:"Liens prérequis/suivantes incohérents",cycles:"Cycles dans les prérequis"};
+  let h=`<p class="doux">${c.nombre_competences} compétences contrôlées le ${new Date(c.date).toLocaleString("fr-FR")}. ${esc(c.avertissement)}</p>`;
+  for(const [k,n] of Object.entries(c.resume)){const d=(c.details||{})[k]||[];
+    h+=`<details class="carte"><summary class="${n?"alerte":""}">${nom[k]||k} : ${n}</summary>`+d.slice(0,25).map(x=>{const ids=Array.isArray(x)?x:(typeof x==="object"?[x.competence,x.prerequis]:[x]);return `<div class="ev">`+ids.filter(Boolean).map(i=>S.byId[i]?`<button class="lien" data-id="${esc(i)}">${esc(S.byId[i].intitule)}</button> <small class="doux">${esc(S.byId[i].niveau)}</small>`:esc(i)).join(" ⟷ ")+`</div>`}).join("")+`</details>`}
+  return h}
+$("q").oninput=()=>{S.cell=null;rendre()};$("seulPropose").onchange=()=>{S.cell=null;rendre()};
+setInterval(tick,3000);tick();
+</script></body></html>

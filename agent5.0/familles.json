@@ -1,0 +1,11 @@
+{
+  "_mode_emploi": "Table de routage : discipline -> famille. Pour déplacer ou ajouter une discipline, modifiez seulement ce fichier. Les noms de disciplines des compétences ne sont jamais modifiés. Toute discipline absente de cette table (ou vide, ou 'A préciser') va dans la famille par défaut.",
+  "famille_par_defaut": "transversal",
+  "familles": {
+    "langages": ["Français", "Langage oral", "Oral vers écrit", "Écriture", "Culture de l’écrit", "Langues vivantes étrangères et régionales"],
+    "mathematiques": ["Mathématiques"],
+    "monde": ["Sciences et technologie", "Matière et objets", "Vivant", "Espace", "Temps", "Informatique", "Histoire", "Géographie", "Histoire-Géographie"],
+    "corps_arts": ["EPS", "Éducation physique et sportive", "EVAR", "Arts plastiques", "Arts visuels", "Éducation musicale", "Univers sonores", "Spectacle vivant", "Histoire des arts"],
+    "transversal": ["Enseignement moral et civique", "Compétences psychosociales"]
+  }
+}

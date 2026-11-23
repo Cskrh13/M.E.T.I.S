@@ -1,0 +1,30 @@
+GRAND PLANIFICATEUR 5.1 — l'aiguilleur
+Copier ces fichiers dans le dossier du Grand Planificateur (à côté de grand_planificateur.py), en remplaçant les anciens :
+  grand_planificateur.py  chercheur.py  test_grand_planificateur_5.py     (remplacés)
+  aiguilleur.py  modele_competences.json  test_aiguilleur.py              (nouveaux)
+Puis relancer lancer_grand_planificateur.bat. Plus besoin de migration_familles.py.
+
+Usage : déposer des documents (bouton du tableau de bord, ou dossier documents\). L'aiguilleur crée les agents manquants,
+copie chaque document chez les agents concernés, et le tableau de bord démarre les agents. Une fois le document traité
+par tous les agents concernés, il est déplacé dans documents\_traites\ (option --garder-documents pour ne rien déplacer).
+Ajouter un agent : « Ajouter un agent (nouvelle famille) » dans le tableau de bord (ou familles.json).
+Réglages (grand_planificateur.json) : "demarrage_auto" (défaut true), "aiguilleur" (défaut true).
+Test : python test_aiguilleur.py
+
+CHERCHEUR : TÉLÉCHARGEMENT DEPUIS LES SOURCES OFFICIELLES (ajout)
+Fichiers : recuperateur.py, sources_officielles.json (nouveaux), chercheur.py, grand_planificateur.py (remplacés), test_recuperateur.py.
+Tableau de bord > « Demander un document officiel » : mots-clés (« programme mathématiques cycle 3 ») ou adresse d'un PDF.
+Le chercheur ne télécharge QUE depuis les domaines de sources_officielles.json (https, PDF vérifiés, 80 Mo max, aucun écrasement),
+le dépose dans documents\ ; l'aiguilleur l'affecte. Traces : chercheur\telechargements.jsonl.
+Les pages_de_depart sont explorées sur 2 niveaux : si une demande ne trouve rien, ajoutez l'adresse exacte de la page de programmes.
+Les agents-compétences peuvent demander un document en déposant dans chercheur\courrier\entrant un message de type "demande_document".
+
+LES AGENTS DEMANDENT EUX-MÊMES LES DOCUMENTS MANQUANTS (ajout)
+Fichiers : demandes_documents.py, test_demandes_documents.py (nouveaux) ; agent4_2_core.py, agent4_2.py (remplacés : 3 lignes ajoutées dans le cycle).
+À chaque cycle, quand l'agent n'a plus aucun segment à lire (instance principale seulement), il compare sa famille à familles.json :
+  - discipline sans aucune compétence  -> demande « programme <discipline> » ;
+  - discipline bien couverte (>= 20 compétences) mais vide dans un cycle 1, 2 ou 3 -> demande « programme <discipline> cycle n ».
+La demande part dans le courrier du chercheur (sites officiels uniquement). Garde-fous : 2 demandes en attente au maximum, vérification
+toutes les 10 min, un même sujet n'est pas redemandé avant 24 h (sans réponse) ou 7 jours (réponse reçue / rien trouvé).
+Visible dans le journal lisible de l'agent (« DEMANDE au chercheur… », « RÉPONSE du chercheur… ») et dans agents\<famille>\etat\demandes_documents.json.
+Désactiver : option --sans-demandes de agent4_2.py (ou dans "options_agent" de grand_planificateur.json).

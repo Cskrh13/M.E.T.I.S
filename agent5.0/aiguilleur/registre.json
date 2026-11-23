@@ -1,0 +1,93 @@
+{
+  "0. Programmes Cycle 1 2025 - ecrit&lecture.pdf": {
+    "sha": "83321493e74b07cc4827aba17a1cd213e2de09fa3955ebea87148b7ae8aafa09",
+    "familles": [
+      "langages",
+      "monde"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf": {
+    "sha": "d1473025200ad2f5380d8c196b3099bf9d851f3d0eddaee1c0b2344a708c48fa",
+    "familles": [
+      "monde",
+      "langages",
+      "mathematiques"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "0. Programmes Cycle 2 2025 - Fran#U00e7ais.pdf": {
+    "sha": "4a15d1446a0b46866a7b672b9c12fbd86ccaf6ad92ac878ded677d92ab8b102a",
+    "familles": [
+      "langages"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "0. Programmes Cycle 2 2025 - Math#U00e9matiques.pdf": {
+    "sha": "0fe8dfba39f78215e4d44f0dc871df80d7c9530267d6de40b49d205d3506caed",
+    "familles": [
+      "langages",
+      "mathematiques",
+      "monde"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "0. Programmes Cycle 3 2025 - Fran#U00e7ais.pdf": {
+    "sha": "e7c27f55c212b5ebb92ba8b60b6b1b0761a2301e7c0d0d780171c4cfb6e121ae",
+    "familles": [
+      "langages"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "0. Programmes Cycle 3 2025 - Math#U00e9matiques.pdf": {
+    "sha": "f3f79a75ca8be7f54409b8b7cee3eafd769c23d12e6c822a253454e2c703b508",
+    "familles": [
+      "mathematiques",
+      "monde",
+      "langages"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "0. Programmes Cycle1-2-3 - EMC.pdf": {
+    "sha": "0f28566133a4d9b8a3da3ee5648fd3f2c1915fe25bea4d05aa8b9894a1544761",
+    "familles": [
+      "transversal",
+      "monde"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "0. Programmes Cycle1-2-3 - EVAR.pdf": {
+    "sha": "d4e5425df3e36312a9d02a331acf9db08fa97619e18bfcbb0307afe22b8ee0fc",
+    "familles": [
+      "corps_arts",
+      "monde"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "programme-de-fran-ais-pour-le-cycle-3-439824.pdf": {
+    "sha": "e7c27f55c212b5ebb92ba8b60b6b1b0761a2301e7c0d0d780171c4cfb6e121ae",
+    "familles": [
+      "langages"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  },
+  "test.pdf": {
+    "sha": "f3f79a75ca8be7f54409b8b7cee3eafd769c23d12e6c822a253454e2c703b508",
+    "familles": [
+      "mathematiques",
+      "monde",
+      "langages"
+    ],
+    "archive": false,
+    "date": "2026-11-23T05:34:21"
+  }
+}

@@ -1,0 +1,5 @@
+{"date": "2026-11-22T14:11:51+01:00", "agent": "agent-0001", "evenement": "naissance", "contenu": {"agent": "agent-0001"}}
+{"date": "2026-11-22T18:56:23+01:00", "agent": "agent-0002", "evenement": "naissance", "contenu": {"agent": "agent-0002", "role": "reviseur"}}
+{"date": "2026-11-22T18:56:23+01:00", "agent": "agent-0003", "evenement": "naissance", "contenu": {"agent": "agent-0003", "role": "auditeur"}}
+{"date": "2026-11-22T18:56:23+01:00", "agent": "agent-0004", "evenement": "naissance", "contenu": {"agent": "agent-0004", "role": "greffier"}}
+{"date": "2026-11-22T18:56:25+01:00", "agent": "agent-0003", "evenement": "audit", "contenu": {"resume": {"ids_dupliques": 0, "prerequis_inexistants": 0, "auto_dependances": 0, "objectifs_non_uniques": 0, "prerequis_posterieurs": 7, "doublons_formulation": 28, "suivantes_asymetriques": 0, "cycles": 1}, "a_reviser_en_priorite": 76}}

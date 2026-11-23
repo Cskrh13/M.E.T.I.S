@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-22T19:51:02+01:00",
+  "statut": "travail : affinage : Maîtrise des tables de multiplication (A préciser)",
+  "dernier_travail": "2026-11-22T18:56:25+01:00",
+  "erreur": null,
+  "valide_jusqua": "2026-11-22T20:07:32+01:00",
+  "appels_llm_total": 0,
+  "resume": {
+    "jour": {
+      "date": "2026-11-22",
+      "actions": 0,
+      "erreurs": 0,
+      "attente_s": 0
+    },
+    "restant": {},
+    "stats_llm": {}
+  }
+}

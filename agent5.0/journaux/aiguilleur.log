@@ -1,0 +1,19 @@
+
+===== démarrage 2026-11-23T05:34:20 =====
+05:34:20  agent « langages » créé (document « 0. Programmes Cycle 1 2025 - ecrit&lecture.pdf » ; 1040 compétence(s) de départ)
+05:34:21  agent « monde » créé (document « 0. Programmes Cycle 1 2025 - ecrit&lecture.pdf » ; 836 compétence(s) de départ)
+05:34:21  « 0. Programmes Cycle 1 2025 - ecrit&lecture.pdf » → langages, monde (scores langages 21, monde 18)
+05:34:21  agent « mathematiques » créé (document « 0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf » ; 1000 compétence(s) de départ)
+05:34:21  « 0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf » → monde, langages, mathematiques (scores monde 19, langages 17, mathematiques 10)
+05:34:21  « 0. Programmes Cycle 2 2025 - Fran#U00e7ais.pdf » → langages (scores langages 37)
+05:34:21  « 0. Programmes Cycle 2 2025 - Math#U00e9matiques.pdf » → langages, mathematiques, monde (scores langages 19, mathematiques 14, monde 11)
+05:34:21  « 0. Programmes Cycle 3 2025 - Fran#U00e7ais.pdf » → langages (scores langages 28)
+05:34:21  « 0. Programmes Cycle 3 2025 - Math#U00e9matiques.pdf » → mathematiques, monde, langages (scores mathematiques 28, monde 16, langages 10)
+05:34:21  agent « transversal » créé (document « 0. Programmes Cycle1-2-3 - EMC.pdf » ; 203 compétence(s) de départ)
+05:34:21  « 0. Programmes Cycle1-2-3 - EMC.pdf » → transversal, monde (scores transversal 49, monde 15)
+05:34:21  agent « corps_arts » créé (document « 0. Programmes Cycle1-2-3 - EVAR.pdf » ; 551 compétence(s) de départ)
+05:34:21  « 0. Programmes Cycle1-2-3 - EVAR.pdf » → corps_arts, monde (scores corps_arts 16, monde 5)
+05:34:21  « programme-de-fran-ais-pour-le-cycle-3-439824.pdf » → langages (scores langages 28)
+05:34:21  « test.pdf » → mathematiques, monde, langages (scores mathematiques 28, monde 16, langages 10)
+
+===== démarrage 2026-11-23T05:53:27 =====

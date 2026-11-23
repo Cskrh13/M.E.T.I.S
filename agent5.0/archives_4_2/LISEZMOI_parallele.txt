@@ -1,0 +1,43 @@
+AGENT 4.2 — VERSION PARALLÈLE : mode d'emploi
+==============================================
+
+CE QUI CHANGE
+  Avant : un seul agent faisait tout, une tâche après l'autre.
+  Maintenant : 4 agents (fils d'exécution) travaillent EN MÊME TEMPS.
+    - extracteur (agent-0001, conservé avec son historique) : lit les documents -> propose des compétences
+    - reviseur   : affine les compétences déjà présentes (variables, granularité, prérequis possibles)
+    - auditeur   : regard critique SANS LLM ; signale doublons et liens suspects ; oriente les réviseurs
+    - greffier   : SANS LLM ; surveille \documents, lit vos décisions (CSV), sauvegarde, signe de vie
+
+INSTALLATION (rien n'est supprimé)
+  1. Dans le dossier de l'agent, remplacer SEULEMENT :  agent4_2.py  et  agent4_2_core.py
+     (ollama_client.py, competences.json, lancer_agent.bat, le tableau de bord : inchangés).
+     Gardez l'état : etat_agent4_2\ est relu tel quel (l'agent-0001 et ses compteurs sont conservés).
+  2. Test sans Ollama, sans risque (travaille sur une copie temporaire) :
+        H:\GrandPlanificateur\moteur\python\python.exe test_agent4_2_parallele.py
+     Attendu : « TOUS LES TESTS PASSENT ».
+  3. Pour que 2 appels LLM soient vraiment traités en même temps, Ollama doit le permettre :
+        - quitter Ollama (icône de la barre des tâches -> Quit)
+        - dans une invite de commandes :   setx OLLAMA_NUM_PARALLEL 2
+        - relancer Ollama
+     Sans cela l'agent fonctionne quand même, mais Ollama met les appels en file d'attente.
+  4. Lancer comme avant : lancer_agent.bat
+
+RÉGLAGES (options de agent4_2.py)
+  --llm-simultanes 2   appels LLM en même temps (défaut 2 ; à accorder avec OLLAMA_NUM_PARALLEL)
+  --extracteurs 1      nombre d'agents extracteurs
+  --reviseurs 1        nombre d'agents réviseurs
+  --appels-heure 120   budget commun à tous les agents
+
+ATTENTION : LE PARALLÉLISME DU LLM EST LIMITÉ PAR LE MATÉRIEL
+  Les agents auditeur et greffier sont réellement indépendants du LLM. Mais extracteur et réviseur
+  partagent le même processeur. Sur CPU, deux appels simultanés vont généralement chacun plus lentement ;
+  le gain peut être modeste. Mesurez-le au lieu de le supposer :
+    - lancez 20 minutes avec  --llm-simultanes 1 , notez "appels_derniere_heure" et "secondes_par_appel"
+      (fichier etat_agent4_2\vivant.json, rubrique "llm", ou lignes [LLM] de agent.log)
+    - relancez 20 minutes avec  --llm-simultanes 2  et comparez.
+  Si le débit n'augmente pas, repassez à 1 : les 4 agents continuent de coopérer.
+
+NOUVEAUTÉ DANS validation\a_valider.csv
+  Types "doublon" et "lien_suspect" (proposés par l'auditeur). Accepter ne fusionne et ne supprime RIEN :
+  cela ajoute un signalement ("doublons_signales", "liens_a_revoir") sur la compétence concernée.

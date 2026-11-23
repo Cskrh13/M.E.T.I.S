@@ -1,0 +1,17 @@
+{
+  "id": "agent-0001",
+  "version": "4.2",
+  "ne_le": "2026-11-22T14:11:51+01:00",
+  "generation": 1,
+  "specialite": null,
+  "traits": {
+    "seuil_certitude": 0.5,
+    "taille_segment": 2000
+  },
+  "bilan": {
+    "propositions": 132,
+    "acceptees": 0,
+    "refusees": 0,
+    "cycles": 54
+  }
+}

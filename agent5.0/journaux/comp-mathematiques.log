@@ -1,0 +1,21 @@
+
+===== démarrage 2026-11-23T05:34:22 =====
+Agent 5.0 (agent-0001, instance 0) — 1000 compétences
+Documents surveillés : H:\GrandPlanificateur\agents\agent5.0\agents\mathematiques\documents
+Validation humaine   : H:\GrandPlanificateur\agents\agent5.0\agents\mathematiques\etat\validation\a_valider.csv
+LLM : disponible
+[NOUVEAU] 0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf : 15 page(s), 42 segment(s)
+[NOUVEAU] 0. Programmes Cycle 2 2025 - Math#U00e9matiques.pdf : 38 page(s), 100 segment(s)
+[NOUVEAU] 0. Programmes Cycle 3 2025 - Math#U00e9matiques.pdf : 28 page(s), 75 segment(s)
+[NOUVEAU] test.pdf : 28 page(s), 75 segment(s)
+[05:34:28] 0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf — segment 1/42 (page 1)…
+[AUDIT] 1007 compétences — prerequis_inexistants=28, prerequis_posterieurs=6, cycles=1
+[CYCLE] complet — 1 segment(s), 0 affinage(s), 454 s
+[05:42:01] 0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf — segment 2/42 (page 1)…
+
+===== démarrage 2026-11-23T05:53:27 =====
+Agent 5.0 (agent-0001, instance 0) — 1007 compétences
+Documents surveillés : H:\GrandPlanificateur\agents\agent5.0\agents\mathematiques\documents
+Validation humaine   : H:\GrandPlanificateur\agents\agent5.0\agents\mathematiques\etat\validation\a_valider.csv
+LLM : disponible
+[05:53:32] 0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf — segment 2/42 (page 1)…

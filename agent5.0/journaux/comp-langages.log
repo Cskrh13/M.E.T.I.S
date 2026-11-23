@@ -1,0 +1,25 @@
+
+===== démarrage 2026-11-23T05:34:22 =====
+Agent 5.0 (agent-0001, instance 0) — 1040 compétences
+Documents surveillés : H:\GrandPlanificateur\agents\agent5.0\agents\langages\documents
+Validation humaine   : H:\GrandPlanificateur\agents\agent5.0\agents\langages\etat\validation\a_valider.csv
+LLM : disponible
+[NOUVEAU] 0. Programmes Cycle 1 2025 - ecrit&lecture.pdf : 13 page(s), 35 segment(s)
+[NOUVEAU] 0. Programmes Cycle 1 2025 - Math#U00e9matiques.pdf : 15 page(s), 42 segment(s)
+[NOUVEAU] 0. Programmes Cycle 2 2025 - Fran#U00e7ais.pdf : 22 page(s), 58 segment(s)
+[NOUVEAU] 0. Programmes Cycle 2 2025 - Math#U00e9matiques.pdf : 38 page(s), 100 segment(s)
+[NOUVEAU] 0. Programmes Cycle 3 2025 - Fran#U00e7ais.pdf : 21 page(s), 50 segment(s)
+[NOUVEAU] 0. Programmes Cycle 3 2025 - Math#U00e9matiques.pdf : 28 page(s), 75 segment(s)
+[NOUVEAU] programme-de-fran-ais-pour-le-cycle-3-439824.pdf : 21 page(s), 50 segment(s)
+[NOUVEAU] test.pdf : 28 page(s), 75 segment(s)
+[05:34:29] 0. Programmes Cycle 1 2025 - ecrit&lecture.pdf — segment 1/35 (page 1)…
+[AUDIT] 1047 compétences — prerequis_posterieurs=1, doublons_formulation=1
+[CYCLE] complet — 1 segment(s), 0 affinage(s), 705 s
+État sauvegardé. Au revoir.
+
+===== démarrage 2026-11-23T05:53:27 =====
+Agent 5.0 (agent-0001, instance 0) — 1047 compétences
+Documents surveillés : H:\GrandPlanificateur\agents\agent5.0\agents\langages\documents
+Validation humaine   : H:\GrandPlanificateur\agents\agent5.0\agents\langages\etat\validation\a_valider.csv
+LLM : disponible
+[05:53:32] 0. Programmes Cycle 1 2025 - ecrit&lecture.pdf — segment 2/35 (page 1)…

@@ -1,0 +1,185 @@
+{
+  "date": "2026-11-22T18:56:25+01:00",
+  "nombre_competences": 3630,
+  "resume": {
+    "ids_dupliques": 0,
+    "prerequis_inexistants": 0,
+    "auto_dependances": 0,
+    "objectifs_non_uniques": 0,
+    "prerequis_posterieurs": 7,
+    "doublons_formulation": 28,
+    "suivantes_asymetriques": 0,
+    "cycles": 1
+  },
+  "details": {
+    "ids_dupliques": [],
+    "prerequis_inexistants": [],
+    "auto_dependances": [],
+    "objectifs_non_uniques": [],
+    "prerequis_posterieurs": [
+      {
+        "competence": "lve_m_reperes_culturels_cp",
+        "prerequis": "lve_ee_epeler_recopier_ce2__obj_05"
+      },
+      {
+        "competence": "math_c3_cm1_comparer_et_denombrer_des_collections_en_les_organisant",
+        "prerequis": "math_nombres_cycle3_6e__obj_05"
+      },
+      {
+        "competence": "math_c3_cm1_connaitre_et_utiliser_les_unites_de_longueur_du_millimetre_au_kilometre_et_les_symboles_associes",
+        "prerequis": "math_grandeurs_mesures_6e__obj_04"
+      },
+      {
+        "competence": "math_c3_cm1_savoir_que_le_perimetre_du_disque_est_proportionnel_a_son_diametre",
+        "prerequis": "math_c3_cm2_resoudre_des_problemes_a_une_ou_plusieurs_etapes_impliquant_des_durees"
+      },
+      {
+        "competence": "math_c3_cm1_utiliser_le_vocabulaire_geometrique_approprie_dans_le_contexte_d_apprentissage_des_notions_correspondantes",
+        "prerequis": "math_espace_geometrie_6e__obj_03"
+      },
+      {
+        "competence": "math_c3_cm1_recueillir_des_donnees_et_produire_un_tableau_un_diagramme_en_barres_ou_un_ensemble_de_points_dans_un_repere_pour_les_presenter",
+        "prerequis": "math_pensee_informatique_6e__obj_03"
+      },
+      {
+        "competence": "math_c3_cm1_savoir_resoudre_un_probleme_de_proportionnalite",
+        "prerequis": "math_c3_6e_comparer_des_resultats_d_une_experience_aleatoire_repetee_a_une_probabilite_calculee"
+      }
+    ],
+    "doublons_formulation": [
+      [
+        "hist_cp_manifestations_naturelles_temps",
+        "histoire_cp_observer_des_manifestations_naturelles_du_temps"
+      ],
+      [
+        "hist_cp_manifestations_naturelles_temps__obj_03",
+        "histoire_cp_nommer_les_saisons_et_donner_leurs_caracteristiques"
+      ],
+      [
+        "hist_cp_representations_humaines_temps",
+        "histoire_cp_connaitre_la_structure_du_calendrier_gregorien"
+      ],
+      [
+        "hist_cp_representations_humaines_temps__obj_02",
+        "histoire_cp_decouvrir_differentes_representations_du_temps_lineaire_et_cyclique"
+      ],
+      [
+        "hist_cp_situer_evenements_temps__obj_02",
+        "histoire_cp_comprendre_la_representation_du_temps_passe_et_son_irreversibilite"
+      ],
+      [
+        "hist_ce1_passe_proche_passe_lointain",
+        "histoire_ce1_comprendre_la_difference_entre_le_passe_proche_et_le_passe_lointain"
+      ],
+      [
+        "hist_ce1_grandes_periodes_histoire",
+        "histoire_ce1_construire_une_premiere_representation_du_temps_long_et_savoir_distinguer_de_grandes_periodes_histor"
+      ],
+      [
+        "hist_ce1_grandes_periodes_histoire__obj_02",
+        "histoire_ce1_connaitre_des_figures_de_chaque_periode_historique"
+      ],
+      [
+        "hist_ce1_grandes_periodes_histoire__obj_03",
+        "histoire_ce1_situer_sur_une_frise_chronologique_des_figures_de_chaque_periode_historique"
+      ],
+      [
+        "hist_ce1_traces_du_passe",
+        "histoire_ce1_comprendre_que_le_passe_laisse_des_traces"
+      ],
+      [
+        "hist_ce1_traces_du_passe__obj_02",
+        "histoire_ce1_utiliser_les_traces_du_passe_pour_le_comprendre"
+      ],
+      [
+        "hist_ce2_paleolithique_neolithique",
+        "histoire_ce2_connaitre_le_mode_de_vie_nomade_au_paleolithique"
+      ],
+      [
+        "hist_ce2_paleolithique_neolithique__obj_04",
+        "histoire_ce2_expliquer_les_differences_de_mode_de_vie_des_femmes_et_des_hommes_entre_le_paleolithique_et_le_neoli"
+      ],
+      [
+        "hist_ce2_rome_gaule_romaine__obj_05",
+        "histoire_ce2_expliquer_que_le_monde_gallo_romain_mele_les_cultures_gauloise_et_romaine"
+      ],
+      [
+        "hist_ce2_construction_royaume_france__obj_02",
+        "histoire_ce2_reperer_les_grandes_etapes_de_la_construction_du_royaume_de_france_a_partir_de_cartes"
+      ],
+      [
+        "geo_cp_representations_du_monde",
+        "géographie_cp_identifier_la_difference_entre_continents_et_oceans"
+      ],
+      [
+        "geo_cp_representations_du_monde__obj_02",
+        "géographie_cp_comprendre_comment_et_pourquoi_passer_du_globe_au_planisphere"
+      ],
+      [
+        "geo_cp_representations_du_monde__obj_03",
+        "géographie_cp_comprendre_que_le_monde_est_peuple"
+      ],
+      [
+        "geo_cp_representations_du_monde__obj_04",
+        "géographie_cp_reconnaitre_et_localiser_les_continents_et_les_oceans_sur_un_planisphere"
+      ],
+      [
+        "geo_ce1_terre_peuplee__obj_02",
+        "géographie_ce1_connaitre_les_principales_villes_dans_le_monde"
+      ],
+      [
+        "geo_ce1_terre_peuplee__obj_04",
+        "géographie_ce1_localiser_les_grands_foyers_de_peuplement_sur_un_planisphere"
+      ],
+      [
+        "geo_ce1_lieux_de_vie_etres_humains__obj_03",
+        "géographie_ce1_connaitre_la_difference_entre_un_fleuve_et_une_riviere"
+      ],
+      [
+        "geo_ce1_lieux_de_vie_etres_humains__obj_04",
+        "géographie_ce1_comprendre_que_les_etres_humains_vivent_dans_des_milieux_differents"
+      ],
+      [
+        "geo_ce2_repartition_population_france",
+        "géographie_ce2_connaitre_la_repartition_de_la_population_en_france"
+      ],
+      [
+        "geo_ce2_repartition_population_france__obj_02",
+        "géographie_ce2_localiser_sur_une_carte_de_france_les_espaces_de_fortes_et_de_faibles_densites"
+      ],
+      [
+        "geo_ce2_se_loger_en_france",
+        "géographie_ce2_connaitre_et_comprendre_la_diversite_des_paysages_residentiels_en_france"
+      ],
+      [
+        "geo_ce2_travailler_en_france",
+        "géographie_ce2_connaitre_et_comprendre_la_diversite_paysagere_des_activites_en_france"
+      ],
+      [
+        "lve_ce_reconnaitre_mots_ce2__obj_03",
+        "lve_ce_trouver_informations_ce2__obj_02"
+      ]
+    ],
+    "suivantes_asymetriques": [],
+    "cycles": [
+      [
+        "math_c3_cm1_calculer_l_aire_d_un_carre_ou_d_un_rectangle",
+        "math_c3_cm1_connaitre_la_formule_de_l_aire_d_un_carre_ou_d_un_rectangle",
+        "math_c3_cm1_effectuer_des_conversions_d_aire",
+        "math_c3_cm1_resoudre_des_problemes_impliquant_des_longueurs",
+        "math_c3_cm1_calculer_des_perimetres_de_figures_composees",
+        "math_c3_cm1_calculer_le_perimetre_d_un_disque",
+        "math_c3_cm1_connaitre_la_formule_du_perimetre_d_un_disque",
+        "math_c3_cm1_savoir_que_le_perimetre_du_disque_est_proportionnel_a_son_diametre",
+        "math_c3_cm2_resoudre_des_problemes_a_une_ou_plusieurs_etapes_impliquant_des_durees",
+        "math_c3_cm1_resoudre_des_problemes_impliquant_des_horaires_et_des_durees",
+        "math_c3_cm1_effectuer_des_calculs_sur_des_horaires_et_des_durees",
+        "math_c3_cm1_determiner_un_volume",
+        "math_c3_cm1_comparer_des_volumes",
+        "math_c3_cm1_connaitre_l_unite_centimetre_cube",
+        "math_c3_cm1_calculer_l_aire_d_un_carre_ou_d_un_rectangle"
+      ]
+    ]
+  },
+  "avertissement": "Contrôle de forme et de cohérence ; ne juge pas la justesse pédagogique."
+}

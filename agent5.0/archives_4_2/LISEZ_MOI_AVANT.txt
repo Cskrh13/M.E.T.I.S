@@ -1,0 +1,4 @@
+Ces deux fichiers décrivent et testent une « version parallèle 4.2 » (classes Biome, PasserelleLLM, agents
+extracteur/réviseur/auditeur/greffier en fils d'exécution) dont le code n'était PAS dans agent4_2_core.py de l'archive
+reçue : le test échouait (AttributeError: Biome). Rangés ici sans rien supprimer. Le parallélisme de la 5.0 est différent :
+plusieurs PROCESSUS (instances) d'un même agent, voir ../LISEZMOI_5_0.txt.

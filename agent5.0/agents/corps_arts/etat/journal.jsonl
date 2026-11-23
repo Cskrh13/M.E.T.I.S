@@ -1,0 +1,3 @@
+{"date": "2026-11-23T05:34:25+01:00", "evenement": "document_detecte", "fichier": "0. Programmes Cycle1-2-3 - EVAR.pdf", "pages": 18, "segments": 33, "remplace": false}
+{"date": "2026-11-23T05:56:03+01:00", "evenement": "audit", "resume": {"ids_dupliques": 0, "prerequis_inexistants": 0, "auto_dependances": 0, "objectifs_non_uniques": 0, "prerequis_posterieurs": 0, "doublons_formulation": 0, "suivantes_asymetriques": 0, "cycles": 0}}
+{"date": "2026-11-23T05:56:03+01:00", "evenement": "cycle", "mode": "complet", "statut": "travail terminé pour ce cycle", "duree_s": 153.1, "segments": 1, "affinages": 0, "erreurs": 0, "appels_llm_total": 1, "cout_llm_s": 150.8}

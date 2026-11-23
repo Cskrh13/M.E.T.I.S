@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-23T05:56:03+01:00",
+  "nombre_competences": 556,
+  "resume": {
+    "ids_dupliques": 0,
+    "prerequis_inexistants": 0,
+    "auto_dependances": 0,
+    "objectifs_non_uniques": 0,
+    "prerequis_posterieurs": 0,
+    "doublons_formulation": 0,
+    "suivantes_asymetriques": 0,
+    "cycles": 0
+  },
+  "details": {
+    "ids_dupliques": [],
+    "prerequis_inexistants": [],
+    "auto_dependances": [],
+    "objectifs_non_uniques": [],
+    "prerequis_posterieurs": [],
+    "doublons_formulation": [],
+    "suivantes_asymetriques": [],
+    "cycles": []
+  },
+  "avertissement": "Contrôle de forme et de cohérence ; ne juge pas la justesse pédagogique."
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-23T05:56:03+01:00",
+  "instance": 0,
+  "statut": "travail terminé pour ce cycle",
+  "dernier_travail": "2026-11-23T05:56:03+01:00",
+  "erreur": null,
+  "valide_jusqua": "2026-11-23T05:58:33+01:00",
+  "appels_llm_total": 1,
+  "resume": {
+    "jour": {
+      "date": "2026-11-23",
+      "actions": 1,
+      "erreurs": 0,
+      "attente_s": 0
+    },
+    "restant": {
+      "segments": 31,
+      "affinages": 550,
+      "total": 581,
+      "secondes_par_tache": 150.8,
+      "heures_estimees": 24.3
+    },
+    "stats_llm": {
+      "jetons_prompt": 801,
+      "jetons_reponse": 568,
+      "duree_totale_s": 148.5,
+      "duree_chargement_s": 7.1,
+      "duree_prompt_s": 12.7,
+      "duree_generation_s": 123.7
+    }
+  }
+}
